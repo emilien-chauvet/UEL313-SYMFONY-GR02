@@ -11,8 +11,19 @@ class LienFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        // création d'un premier lien
+        $lien = new Lien();
+        $lien->setLienTitre("Premier lien");
+        $lien->setLienDesc("Lorem ipsum");
+        $lien->setLienUrl("Lorem ipsum");
+        $manager->persist($lien);
+
+        // création d'un second lien
+        $lien = new Lien();
+        $lien->setLienTitre("Second lien");
+        $lien->setLienDesc("Lorem ipsum");
+        $lien->setLienUrl("Lorem ipsum");
+        $manager->persist($lien);
 
         $manager->flush();
     }
