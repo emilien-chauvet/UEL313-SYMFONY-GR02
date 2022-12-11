@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Lien{% endblock %}
+
+{% block body %}
+    <style media="screen">
+      html {
+        font-family: montserrat;
+      }
+      h1 {
+        color: #2B3A67;
+      }
+      #article div {
+        display: flex;
+        flex-direction: column;
+      }
+      #article div input {
+        margin: 1rem 0 2rem 0;
+        width: 600px;
+      }
+      #article div textarea {
+        margin: 1rem 0 2rem 0;
+        width: 600px;
+      }
+      .btn {
+        font-family: montserrat;
+        font-size: 1rem;
+        background: #2B3A67;
+        color: white;
+        text-decoration: none;
+        padding: .5rem 1rem;
+        border-radius: 10px;
+        border: none;
+        margin: 0 0 2rem 0;
+      }
+      .btn:hover {
+        transition: .5s;
+        background: #496A81;
+      }
+      .a_back {
+        text-decoration: none;
+        color: #496A81;
+      }
+    </style>
+    <h1>Créer un nouveau lien</h1>
+
+    {{ include('lien/_form.html.twig') }}
+
+    <a class="a_back" href="{{ path('app_lien_index') }}">← Retour à la liste</a>
+{% endblock %}

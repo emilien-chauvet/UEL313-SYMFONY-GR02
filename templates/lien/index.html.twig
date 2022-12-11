@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lien index{% endblock %}
+
+{% block body %}
+    <style media="screen">
+      html {
+        font-family: montserrat;
+      }
+      h1 {
+        color: #2B3A67;
+      }
+      .table {
+        width: 60%;
+        height: 150px;
+        margin-bottom: 25px;
+      }
+      .tbody {
+        text-align: center;
+        height: 100px;
+      }
+      .th {
+        color: #496A81;
+      }
+      .tr_body td a {
+        background: #FFC482;
+        padding: 8px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+      }
+      .tr_body td a:hover {
+        transition: .5s;
+        background: #496A81;
+        padding: 8px;
+        text-decoration: none;
+        color: white;
+      }
+      .a_create {
+        margin: 4rem 0;
+        background: #2B3A67;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+      }
+      .a_create:hover {
+        transition: .5s;
+        background: #496A81;
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+    <h1>Lien index</h1>
+
+    <table class="table">
+        <thead class=".thead">
+            <tr class="tr_head">
+                <th class="th th_id">ID</th>
+                <th class="th">Lien URL</th>
+                <th class="th">Lien Titre</th>
+                <th class="th">Lien Description</th>
+                <th class="th th_actions">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+        {% for lien in liens %}
+            <tr class="tr_body">
+                <td>{{ lien.id }}</td>
+                <td>{{ lien.lienUrl }}</td>
+                <td>{{ lien.lienTitre }}</td>
+                <td>{{ lien.lienDesc }}</td>
+                <td>
+                    <a href="{{ path('app_lien_show', {'id': lien.id}) }}">show</a>
+                    <a href="{{ path('app_lien_edit', {'id': lien.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas de lien trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="a_create" href="{{ path('app_lien_new') }}">Ajouter un lien</a>
+{% endblock %}
